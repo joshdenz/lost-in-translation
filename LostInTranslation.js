@@ -3,6 +3,12 @@
  * 
  */
 /**
+ * Google Cloud Translation API
+ * The Google Cloud Translation API and specifically it's translate method are used to provide the translations.
+ * Please utilize the documentation located here: https://cloud.google.com/translate/docs/
+ * LostInTranslation.js has absolutely no affiliation with Google.  
+ */
+/**
  * MIT License
  * Copyright 2017 Joshua Denzau
  * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files 
