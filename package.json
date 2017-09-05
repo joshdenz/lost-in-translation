@@ -1,0 +1,22 @@
+{
+  "name": "lost-in-translation",
+  "version": "1.0.0",
+  "description": "This package allows you to translate a given string through multiple translations to receive a somewhat interesting result.",
+  "main": "LostInTranslation.js",
+  "dependencies": {
+    "deep-extend": "^0.5.0",
+    "express": "^4.15.4",
+    "jsdom": "^11.1.0",
+    "oauth": "^0.9.15"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "translation",
+    "random"
+  ],
+  "author": "Joshua Denzau",
+  "license": "MIT"
+}
