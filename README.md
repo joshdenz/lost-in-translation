@@ -53,13 +53,15 @@ translator.getTranslation().then((data)=>{
 
 // Logged: The text became: This is the absolute line input line.
 ```
-The getTranslation method returns an array of objects, each representing a translation step.  For example, if you specify 3 languages to translate through then the returned object will have 5 elements.  The element at data[0] is the first step, so it is the input and input language.  And the last item in the array is the completed translation and output language.
+The getTranslation method returns a promise that resolves to an array of objects, each representing a translation step.  For example, if you specify 3 languages to translate through then the returned object will have 5 elements.  The element at data[0] is the first step, so it is the input and input language.  And the last item in the array is the completed translation and output language.
 
-If you want to know the languages that were used to translate the inputString you can access the 'code' property of each element in the returned array.
+The objects in the array have the followin signature:
+
 ```
-condole.log(data[data.length - 1].code)
-
-//Logs: en
+{
+    code: 'This will be the 2 letter language code',
+    translation: 'This will be the inputString translated into the language represented in the code parameter'
+}
 ```
 
 ### setTranslationParams

@@ -32,7 +32,7 @@ class Translator {
 
     /**
      * Class method to make the translation requests.
-     * Returns a Promise
+     * @returns {Promise}
      */
     getTranslation() {
         return makeApiCalls(this.config);
