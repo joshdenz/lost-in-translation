@@ -65,11 +65,11 @@ class Translator {
      * This saves you some API usage at the cost of potentially being out of date.
      * @param {array} list - An array consisting of two letter language codes.
      */
-    setLanguageList(list){
-        if(Array.isArray(list)){
-            try{
+    setLanguageList(list) {
+        if (Array.isArray(list)) {
+            try {
                 languageList = list;
-            } catch(e){
+            } catch (e) {
                 console.log(e);
             }
         } else {
@@ -161,7 +161,7 @@ async function makeApiCalls(requestObject) {
             console.log("exiting with error: " + e);
         }
     }
-    apiOutput = generateResultsObject(requestObject.languageSteps, response);
+    apiOutput = generateResultsObject(requestObject.languageSteps, response, requestObject.startLang);
     return apiOutput;
 }
 
@@ -170,12 +170,19 @@ async function makeApiCalls(requestObject) {
  * @param {array} codes - These are the translation codes for each language we translate through.
  * @param {array} results - These are the returned translation for each step. 
  */
-function generateResultsObject(codes, results) {
+function generateResultsObject(codes, results, startLanguage) {
     var returnObj = [];
     for (let i = 0; i < results.length; i++) {
-        returnObj[i] = {
-            code: codes[i],
-            translation: results[i]
+        if (i == 0) {
+            returnObj[i] = {
+                code: startLanguage,
+                translation: results[i]
+            }
+        } else {
+            returnObj[i] = {
+                code: codes[i-1],
+                translation: results[i]
+            }
         }
     }
     return returnObj;
@@ -184,10 +191,10 @@ function generateResultsObject(codes, results) {
  * This list is provided to prevent the need for the translation API to detect which language you are using, and also to add the "random language" functionality.
  * Feel free to overwrite this list using setLanguageList()
  */
-languageList = ['af','sq','am','ar','hy','az','eu','be','bn','bs','bg','ca','ceb','co','hr','cs','da','nl','eo','et','fi','fr',
-    'fy','gl','ka','de','el','gu','ht','ha','haw','iw','hi','hmn','hu','is','ig','id','ga','it','ja','jw','kn','kk','km','ko','ku','ky','lo',
-    'la','lv','lt','lb','mk','mg','ms','ml','mi','mr','mn','my','ne','no','ny','ps','fa','pl','pt','pa','ro','ru','sm','gd','sr','st','sn',
-    'sd','si','sk','sl','so','es','su','sw','sv','tg','ta','te', 'th', 'tr', 'uk', 'ur', 'uz', 'vi', 'cy', 'xh', 'yi', 'yo', 'zu'
+languageList = ['af', 'sq', 'am', 'ar', 'hy', 'az', 'eu', 'be', 'bn', 'bs', 'bg', 'ca', 'ceb', 'co', 'hr', 'cs', 'da', 'nl', 'eo', 'et', 'fi', 'fr',
+    'fy', 'gl', 'ka', 'de', 'el', 'gu', 'ht', 'ha', 'haw', 'iw', 'hi', 'hmn', 'hu', 'is', 'ig', 'id', 'ga', 'it', 'ja', 'jw', 'kn', 'kk', 'km', 'ko', 'ku', 'ky', 'lo',
+    'la', 'lv', 'lt', 'lb', 'mk', 'mg', 'ms', 'ml', 'mi', 'mr', 'mn', 'my', 'ne', 'no', 'ny', 'ps', 'fa', 'pl', 'pt', 'pa', 'ro', 'ru', 'sm', 'gd', 'sr', 'st', 'sn',
+    'sd', 'si', 'sk', 'sl', 'so', 'es', 'su', 'sw', 'sv', 'tg', 'ta', 'te', 'th', 'tr', 'uk', 'ur', 'uz', 'vi', 'cy', 'xh', 'yi', 'yo', 'zu'
 ]
 
 module.exports = Translator;

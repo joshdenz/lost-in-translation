@@ -7,7 +7,6 @@
     "@google-cloud/translate": "^1.0.0",
     "deep-extend": "^0.5.0"
   },
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -16,5 +15,7 @@
     "random"
   ],
   "author": "Joshua Denzau",
-  "license": "MIT"
+  "license": "MIT",
+  "repository": "joshdenz/lost-in-translation",
+  "homepage": "https://github.com/joshdenz/lost-in-translation"
 }
