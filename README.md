@@ -6,7 +6,7 @@ You know that thing where people were translating lyrics and such through multip
 
 To install:
 ```
-npm install lost-in-translation 
+npm install --save lost-in-translation 
 ```
 ## Usage
 
