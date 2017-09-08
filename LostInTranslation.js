@@ -1,6 +1,8 @@
 /**
  * LostInTranslation.js
  * 
+ * Attribution for Google:
+ * THIS SERVICE MAY CONTAIN TRANSLATIONS POWERED BY GOOGLE. GOOGLE DISCLAIMS ALL WARRANTIES RELATED TO THE TRANSLATIONS, EXPRESS OR IMPLIED, INCLUDING ANY WARRANTIES OF ACCURACY, RELIABILITY, AND ANY IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. 
  */
 const request = require('request');
 const extend = require('deep-extend');
@@ -113,7 +115,6 @@ function setTranslationLanguages(input) {
 /**
  * This function will determine the operating mode of the module.  Random, or specific
  */
-
 function setOperatingMode(input) {
     //determine if user has passed an array.  If so, assign array to class languageSteps property. Else assign to this.randomSteps.
     if (Array.isArray(input.languageSteps)) {
@@ -129,7 +130,6 @@ function setOperatingMode(input) {
  * This is where the magic happens. Takes an object provided by setTranslationLanguages() and makes the actual Google Cloud Translation API request
  * @param {object} requestObject 
  */
-
 async function makeApiCalls(requestObject) {
     var apiOutput = {};
     var numberOfLoops = requestObject.numberOfSteps;

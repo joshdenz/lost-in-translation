@@ -1,12 +1,14 @@
 # LostInTranslation.js
 
-You know that thing where people were translating lyrics and such through multiple translations and then singing the lyrics back in English?  Yeah that's what I was thinking of when I wrote this.  I've had some fun with it, and maybe you will to.
+You know that thing where people were translating lyrics and such through multiple translations and then singing the lyrics back in English?  Yeah that's what I was thinking of when I wrote this.  A Node.js module that allows you to translate a string multiple times through multiple languages. I've had some fun with it, and maybe you will to.  
+
+![greyscale](https://user-images.githubusercontent.com/5851874/30230448-57bedac8-94b4-11e7-9c8b-42557b06ff4c.png)
 
 ## Installation
 
 To install:
 ```
-npm install --save lost-in-translation 
+npm install lost-in-translation 
 ```
 ## Usage
 
