@@ -25,6 +25,23 @@ var translator = new Translator({
     keyFilename: 'path to keyfile'
 })
 ```
+
+The first object passed to the constructor should have the following structure:
+
+```
+//All parameters are required.
+{
+    //languageSteps can be either a number or an array of languages e.g. ['az','eu','be','bn']
+    languageSteps: 3,
+    //the final language returned
+    targetLanguage: 'en',
+    //the language we are starting with
+    startingLanguage: 'en',
+    //the string to be translated
+    inputString: 'This is my totally rad input string'
+}
+```
+
 ### getTranslation:
 
 ```
@@ -62,4 +79,15 @@ translator.setTranslationParams({
 })
 
 //Logged: The text became: Secondly, more beautiful than circuits is not completely new.
+```
+
+### setLanguageList
+
+LostInTranslation.js includes an internal array of supported language codes.  This is done so that you don't have to rely on language detection at the expense of perhaps not being up to date at all times.  If you find yourself needing to alter the list of language codes, you may replace the existing array using setLanguageList.  
+
+```
+var list = ['ps', 'fa', 'pl'];
+translator.setLanguageList(list);
+
+//Now the internal list will only contain the languages specified: 'ps', 'fa', 'pl'
 ```
