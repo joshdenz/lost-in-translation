@@ -2,26 +2,6 @@
  * LostInTranslation.js
  * 
  */
-/**
- * Google Cloud Translation API
- * The Google Cloud Translation API and specifically it's translate method are used to provide the translations.
- * Please utilize the documentation located here: https://cloud.google.com/translate/docs/
- * LostInTranslation.js has absolutely no affiliation with Google.  
- */
-/**
- * MIT License
- * Copyright 2017 Joshua Denzau
- * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files 
- * (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, 
- * merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished 
- * to do so, subject to the following conditions:
- * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
- * 
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES 
- * OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE 
- * LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR 
- * IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
- */
 const request = require('request');
 const extend = require('deep-extend');
 const translate = require('@google-cloud/translate');
@@ -176,10 +156,9 @@ async function makeApiCalls(requestObject) {
         try {
             await translateClient.translate(response[i], options).then((data) => {
                 response.push(data[0]);
-                console.log(response[i + 1]);
             })
         } catch (e) {
-            return console.log("exiting with error: " + e);
+            console.log("exiting with error: " + e);
         }
     }
     apiOutput = generateResultsObject(requestObject.languageSteps, response);
@@ -205,105 +184,10 @@ function generateResultsObject(codes, results) {
  * This list is provided to prevent the need for the translation API to detect which language you are using, and also to add the "random language" functionality.
  * Feel free to overwrite this list using setLanguageList()
  */
-languageList = [
-    'af',
-    'sq',
-    'am',
-    'ar',
-    'hy',
-    'az',
-    'eu',
-    'be',
-    'bn',
-    'bs',
-    'bg',
-    'ca',
-    'ceb',
-    'co',
-    'hr',
-    'cs',
-    'da',
-    'nl',
-    'eo',
-    'et',
-    'fi',
-    'fr',
-    'fy',
-    'gl',
-    'ka',
-    'de',
-    'el',
-    'gu',
-    'ht',
-    'ha',
-    'haw',
-    'iw',
-    'hi',
-    'hmn',
-    'hu',
-    'is',
-    'ig',
-    'id',
-    'ga',
-    'it',
-    'ja',
-    'jw',
-    'kn',
-    'kk',
-    'km',
-    'ko',
-    'ku',
-    'ky',
-    'lo',
-    'la',
-    'lv',
-    'lt',
-    'lb',
-    'mk',
-    'mg',
-    'ms',
-    'ml',
-    'mi',
-    'mr',
-    'mn',
-    'my',
-    'ne',
-    'no',
-    'ny',
-    'ps',
-    'fa',
-    'pl',
-    'pt',
-    'pa',
-    'ro',
-    'ru',
-    'sm',
-    'gd',
-    'sr',
-    'st',
-    'sn',
-    'sd',
-    'si',
-    'sk',
-    'sl',
-    'so',
-    'es',
-    'su',
-    'sw',
-    'sv',
-    'tg',
-    'ta',
-    'te',
-    'th',
-    'tr',
-    'uk',
-    'ur',
-    'uz',
-    'vi',
-    'cy',
-    'xh',
-    'yi',
-    'yo',
-    'zu'
+languageList = ['af','sq','am','ar','hy','az','eu','be','bn','bs','bg','ca','ceb','co','hr','cs','da','nl','eo','et','fi','fr',
+    'fy','gl','ka','de','el','gu','ht','ha','haw','iw','hi','hmn','hu','is','ig','id','ga','it','ja','jw','kn','kk','km','ko','ku','ky','lo',
+    'la','lv','lt','lb','mk','mg','ms','ml','mi','mr','mn','my','ne','no','ny','ps','fa','pl','pt','pa','ro','ru','sm','gd','sr','st','sn',
+    'sd','si','sk','sl','so','es','su','sw','sv','tg','ta','te', 'th', 'tr', 'uk', 'ur', 'uz', 'vi', 'cy', 'xh', 'yi', 'yo', 'zu'
 ]
+
 module.exports = Translator;

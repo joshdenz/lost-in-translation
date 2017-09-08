@@ -4,10 +4,8 @@
   "description": "This package allows you to translate a given string through multiple translations to receive a somewhat interesting result.",
   "main": "LostInTranslation.js",
   "dependencies": {
-    "deep-extend": "^0.5.0",
-    "express": "^4.15.4",
-    "jsdom": "^11.1.0",
-    "oauth": "^0.9.15"
+    "@google-cloud/translate": "^1.0.0",
+    "deep-extend": "^0.5.0"
   },
   "devDependencies": {},
   "scripts": {
